@@ -1,32 +1,32 @@
 [
-  {
-    "title": "Common mutaz 1",
-    "description": "Description of common issue 1",
-    "solution": "Solution for common issue 1"
-  },
-  {
-    "title": "Common Issue 2",
-    "description": "Description of common issue 2",
-    "solution": "Solution for common issue 2"
-  },
-  {
-    "title": "Common Issue 3",
-    "description": "Description of common issue 3",
-    "solution": "Solution for common issue 3"
-  },
-    {
-    "title": "Common Issue 4",
-    "description": "Description of common issue 4",
-    "solution": "Solution for common issue 4"
-  },
-    {
-    "title": "Common Issue 5",
-    "description": "Description of common issue 5",
-    "solution": "Solution for common issue 5"
-  },
-  {
-    "title": "Common Issue 5",
-    "description": "Error while running terraform: deleting Managed Kubernetes Cluster "kubernetes-aks1" (Resource Group "k8s-resources"): containerservice.ManagedClustersClient#Delete: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status=<nil> <nil>",
-    "solution": "there is lock on Mc_* resource group"
-  }
+	{
+		"title": "Common mutaz 1",
+		"description": "Description of common issue 1",
+		"solution": "Solution for common issue 1"
+	},
+	{
+		"title": "Common Issue 2",
+		"description": "Description of common issue 2",
+		"solution": "Solution for common issue 2"
+	},
+	{
+		"title": "Common Issue 3",
+		"description": "Description of common issue 3",
+		"solution": "Solution for common issue 3"
+	},
+	{
+		"title": "Common Issue 4",
+		"description": "Description of common issue 4",
+		"solution": "Solution for common issue 4"
+	},
+	{
+		"title": "Common Issue 5",
+		"description": "Description of common issue 5",
+		"solution": "Solution for common issue 5"
+	},
+	{
+		"title": "Common Issue 5",
+		"description": "Error while running terraform: deleting Managed Kubernetes Cluster \"kubernetes-aks1\" (Resource Group \"k8s-resources\"): containerservice.ManagedClustersClient#Delete: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status=<nil> <nil>",
+		"solution": "there is lock on Mc_* resource group"
+	}
 ]
