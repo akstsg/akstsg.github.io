@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Common mutaz 1",
+    "description": "Description of common issue 1",
+    "solution": "Solution for common issue 1"
+  },
+  {
+    "title": "Common Issue 2",
+    "description": "Description of common issue 2",
+    "solution": "Solution for common issue 2"
+  },
+  {
+    "title": "Common Issue 3",
+    "description": "Description of common issue 3",
+    "solution": "Solution for common issue 3"
+  }
+]
