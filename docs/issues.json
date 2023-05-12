@@ -26,7 +26,7 @@
 	},
 	{
 		"title": "Common Issue 5",
-		"description": "Error while running terraform: deleting Managed Kubernetes Cluster \"kubernetes-aks1\" (Resource Group \"k8s-resources\"): containerservice.ManagedClustersClient#Delete: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status=<nil> <nil>",
+		"description": "Error while running terraform: deleting Managed Kubernetes Cluster \"kubernetes-aks1\" (Resource Group \"k8s-resources\"): containerservice.ManagedClustersClient#Delete: Failure sending request: StatusCode=0 -- Original Error: autorest\/azure: Service returned an error. Status=<nil> <nil>",
 		"solution": "there is lock on Mc_* resource group"
 	}
 ]
