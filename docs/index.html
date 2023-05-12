@@ -65,6 +65,10 @@
     }
   </style>
   <script>
+    function loadPage(url) {
+      window.location.href = url;
+    }
+
     function searchContent(event) {
       if (event.keyCode === 13) { // Check if Enter key is pressed
         var input = document.getElementById("search-input").value.toLowerCase();
@@ -107,7 +111,6 @@
               issue.description.toLowerCase().includes(input) ||
               issue.solution.toLowerCase().includes(input)
             );
-
             if (filteredIssues.length > 0) {
               var issuesList = document.createElement("ul");
               filteredIssues.forEach(issue => {
@@ -131,18 +134,21 @@
 </head>
 <body>
   <div class="container">
+      <div class="navigation">
+	  <a href="#" onclick="loadPage('index.html')">Home</a>
+      <a href="#" onclick="loadPage('commands.html')">Commands</a>
+      <a href="#" onclick="loadPage('issues.html')">Common Issues</a>
+    </div>
     <h1>Command Reference</h1>
     <div class="search-box">
       <input type="text" id="search-input" placeholder="Search commands and issues..." onkeydown="searchContent(event)">
       <input type="submit" value="Search">
     </div>
-    <div class="navigation">
-      <a href="commands.html">Commands</a>
-      <a href="issues.html">Common Issues</a>
-    </div>
+
     <h2>Main Page Content</h2>
     <p>This is the main page content.</p>
     <div class="search-results" id="search-results"></div>
   </div>
 </body>
 </html>
+
