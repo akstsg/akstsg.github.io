@@ -18,5 +18,10 @@
     "title": "Example Command 4",
     "description": "Description of example command 4",
     "command": "command4"
+  },
+  {
+    "title": "Example Command 5",
+    "description": "Description of example command 5",
+    "command": "command5"
   }
 ]
