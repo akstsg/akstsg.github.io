@@ -63,6 +63,19 @@
       margin: 0;
       font-size: 14px;
     }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      .search-box {
+        flex-direction: column;
+      }
+      .search-box input[type="text"] {
+        margin-bottom: 10px;
+      }
+    }
   </style>
   <script>
     function loadPage(url) {
@@ -108,26 +121,25 @@
           var filteredIssues = issues.filter(issue =>
             issue.title.toLowerCase().includes(input) ||
             issue.description.toLowerCase().includes(input) ||
-            issue.solution.toLowerCase().includes(input)
-          );
-          if (filteredIssues.length > 0) {
-            var issuesList = document.createElement("ul");
-            filteredIssues.forEach(issue => {
-              var issueItem = document.createElement("li");
-              var issueTitle = document.createElement("h3");
-                           issueTitle.textContent = issue.title;
-              var issueDescription = document.createElement("p");
-              issueDescription.textContent = issue.description;
-
-              issueItem.appendChild(issueTitle);
-              issueItem.appendChild(issueDescription);
-              issuesList.appendChild(issueItem);
-            });
-            searchResults.appendChild(issuesList);
-          }
-        })
-        .catch(error => console.error(error));
-    }
+issue.solution.toLowerCase().includes(input)
+);
+if (filteredIssues.length > 0) {
+var issuesList = document.createElement("ul");
+filteredIssues.forEach(issue => {
+var issueItem = document.createElement("li");
+var issueTitle = document.createElement("h3");
+issueTitle.textContent = issue.title;
+var issueDescription = document.createElement("p");
+issueDescription.textContent = issue.description;
+          issueItem.appendChild(issueTitle);
+          issueItem.appendChild(issueDescription);
+          issuesList.appendChild(issueItem);
+        });
+        searchResults.appendChild(issuesList);
+      }
+    })
+    .catch(error => console.error(error));
+}
   </script>
 </head>
 <body>
@@ -142,10 +154,9 @@
       <input type="text" id="search-input" placeholder="Search commands and issues..." onkeydown="if(event.keyCode === 13) searchContent()">
       <input type="submit" value="Search" onclick="searchContent()">
     </div>
-
     <h2>Main Page Content</h2>
-    <p>This is the main page content.</p>
-    <div class="search-results" id="search-results"></div>
+<p>This is the main page content.</p>
+<div class="search-results" id="search-results"></div>
   </div>
 </body>
 </html>
