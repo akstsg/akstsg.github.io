@@ -92,19 +92,26 @@
 
     function fetchIssues() {
       fetch('https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/issues.json')
-        .then(response => response.json())
+       .then(response => response.json())
         .then(issues => {
           var issueList = document.querySelector('.issue-list');
           issues.forEach(issue => {
             var listItem = document.createElement('li');
             listItem.className = 'searchable';
+
             var issueTitle = document.createElement('h3');
             issueTitle.textContent = issue.title;
+
             var issueDescription = document.createElement('p');
             issueDescription.textContent = issue.description;
 
+            var issueSolution = document.createElement('p');
+            issueSolution.textContent = issue.solution;
+
             listItem.appendChild(issueTitle);
             listItem.appendChild(issueDescription);
+            listItem.appendChild(issueSolution);
+
             issueList.appendChild(listItem);
           });
         });
