@@ -1,136 +1,143 @@
-	<!DOCTYPE html>
-<html>
-<head>
-  <title>Command Reference - Commands</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #f8f8f8;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    .search-box {
-      display: flex;
-      margin-bottom: 20px;
-    }
-    .search-box input[type="text"] {
-      flex: 1;
-      padding: 10px;
-      font-size: 16px;
-    }
-    .search-box input[type="submit"] {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .command-list {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-    .command-list li {
-      margin-bottom: 10px;
-      background-color: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .command-list li h3 {
-      margin-top: 0;
-      color: #333;
-    }
-    .command-list li p {
-      color: #666;
-    }
-    .navigation {
-      margin-bottom: 20px;
-    }
-    .navigation a {
-      margin-right: 10px;
-      color: #333;
-      text-decoration: none;
-    }
-    @media only screen and (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-      .search-box {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .search-box input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-      .search-box input[type="submit"] {
-        width: 100%;
-      }
-    }
-  </style>
-  <script>
-    function searchContent() {
-      var input = document.getElementById("search-input").value.toLowerCase();
-      var commands = document.querySelectorAll(".searchable");
-      for (var i = 0; i < commands.length; i++) {
-        var command = commands[i].textContent.toLowerCase();
-        if (command.indexOf(input) > -1) {
-          commands[i].style.display = "";
-        } else {
-          commands[i].style.display = "none";
-        }
-      }
-    }
-    function fetchCommands() {
-      fetch('https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/commands.json')
-        .then(response => response.json())
-        .then(commands => {
-          var commandList = document.querySelector('.command-list');
-          commandList.innerHTML = ''; // Clear existing items before populating
-          commands.forEach(command => {
-            var listItem = document.createElement('li');
-            listItem.className = 'searchable';
-            var commandTitle = document.createElement('h3');
-            commandTitle.textContent = command.title;
-            var commandDescription = document.createElement('p');
-            commandDescription.textContent = command.description;
-            var commandCode = document.createElement('pre');
-            commandCode.innerHTML = '<code>$ ' + command.command + '</code>';
-            listItem.appendChild(commandTitle);
-            listItem.appendChild(commandDescription);
-          listItem.appendChild(commandCode);
-commandList.appendChild(listItem);
-});
-});
-}
- document.addEventListener('DOMContentLoaded', fetchCommands);
-function loadPage(page) {
-  window.location.href = page;
-}
-</script>
-</head>
-<body>
-  <div class="container">
-  	<div class="navigation">
-	  <a href="#" onclick="loadPage('index.html')">Home</a>
-      <a href="#" onclick="loadPage('commands.html')">Commands</a>
-      <a href="#" onclick="loadPage('issues.html')">Common Issues</a>
-    </div>
-    <h1>Command Reference - Commands</h1>
-    <div class="search-box">
-      <input type="text" id="search-input" placeholder="Search commands..." onkeydown="if(event.keyCode === 13) searchContent()">
-      <input type="submit" value="Search" onclick="searchContent()">
-    </div>
-    <ul class="command-list">
-      <!-- Commands will be dynamically populated here -->
-    </ul>
-  </div>
-</body>
+<!DOCTYPE html>	
+<html>	
+<head>	
+  <title>Command Reference - Commands</title>	
+  <style>	
+    body {	
+      font-family: Arial, sans-serif;	
+    }	
+    .container {	
+      max-width: 100%;	
+      margin: 0 auto;	
+      padding: 20px;	
+      background-color: #f8f8f8;	
+      border: 1px solid #ddd;	
+      border-radius: 5px;	
+    }	
+    .search-box {	
+      display: flex;	
+      margin-bottom: 20px;	
+    }	
+    .search-box input[type="text"] {	
+      flex: 1;	
+      padding: 10px;	
+      font-size: 16px;	
+    }	
+    .search-box input[type="submit"] {	
+      padding: 10px 20px;	
+      font-size: 16px;	
+      background-color: #4CAF50;	
+      color: white;	
+      border: none;	
+      cursor: pointer;	
+    }	
+    .command-list {	
+      list-style-type: none;	
+      padding: 0;	
+      margin: 0;	
+    }	
+    .command-list li {	
+      margin-bottom: 10px;	
+      background-color: #fff;	
+      padding: 10px;	
+      border-radius: 5px;	
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);	
+    }	
+    .command-list li h3 {	
+      margin-top: 0;	
+      color: #333;	
+    }	
+    .command-list li p {	
+      color: #666;	
+    }	
+    .navigation {	
+      margin-bottom: 20px;	
+    }	
+    .navigation a {	
+      margin-right: 10px;	
+      color: #333;	
+      text-decoration: none;	
+    }	
+    @media only screen and (max-width: 768px) {	
+      .container {	
+        padding: 10px;	
+      }	
+      .search-box {	
+        flex-direction: column;	
+        align-items: flex-start;	
+      }	
+      .search-box input[type="text"] {	
+        width: 100%;	
+        margin-bottom: 10px;	
+      }	
+      .search-box input[type="submit"] {	
+        width: 100%;	
+      }	
+    }	
+  </style>	
+  <script>	
+    function searchContent() {	
+      var input = document.getElementById("search-input").value.toLowerCase();	
+      var commands = document.querySelectorAll(".searchable");	
+      for (var i = 0; i < commands.length; i++) {	
+        var command = commands[i].textContent.toLowerCase();	
+        if (command.indexOf(input) > -1) {	
+          commands[i].style.display = "";	
+        } else {	
+          commands[i].style.display = "none";	
+        }	
+      }	
+    }	
+  function fetchCommands(url) {	
+  fetch(url)	
+    .then(response => response.json())	
+    .then(commands => {	
+      var commandList = document.querySelector('.command-list');	
+      commandList.innerHTML = ''; // Clear existing items	
+      	
+      commands.forEach(command => {	
+        var listItem = document.createElement('li');	
+        listItem.className = 'searchable';	
+        var commandTitle = document.createElement('h3');	
+        commandTitle.textContent = command.title;	
+        var commandDescription = document.createElement('p');	
+        commandDescription.textContent = command.description;	
+        var commandCode = document.createElement('pre');	
+        commandCode.innerHTML = '<code>$ ' + command.command + '</code>';	
+        listItem.appendChild(commandTitle);	
+        listItem.appendChild(commandDescription);	
+        listItem.appendChild(commandCode);	
+        commandList.appendChild(listItem);	
+      });	
+    });	
+}	
+document.addEventListener('DOMContentLoaded', function() {	
+  var commandsUrl = 'https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/commands.json'; // Replace with the actual URL of your hosted commands.json file	
+  fetchCommands(commandsUrl);	
+});	
+function loadPage(page) {	
+  window.location.href = page;	
+}	
+function loadPage(page) {	
+  window.location.href = page;	
+}	
+    </script>	
+</head>	
+<body>	
+  <div class="container">	
+    <div class="navigation">	
+      <a href="#" onclick="loadPage('index.html')">Home</a>	
+      <a href="#" onclick="loadPage('commands.html')">Commands</a>	
+      <a href="#" onclick="loadPage('issues.html')">Common Issues</a>	
+    </div>	
+    <h1>Command Reference - Commands</h1>	
+    <div class="search-box">	
+      <input type="text" id="search-input" placeholder="Search commands..." onkeydown="if(event.keyCode === 13) searchContent()">	
+      <input type="submit" value="Search" onclick="searchContent()">	
+    </div>	
+    <ul class="command-list">	
+      <!-- Commands will be dynamically populated here -->	
+    </ul>	
+  </div>	
+</body>	
 </html>
