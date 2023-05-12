@@ -93,10 +93,13 @@
           });
         });
     }
-    document.addEventListener('DOMContentLoaded', function() {
-      fetchIssues();
-    });
-   </script>
+    document.addEventListener('DOMContentLoaded', fetchCommands);
+	
+	
+    function loadPage(page) {
+      window.location.href = page;
+    }
+  </script>
 </head>
 <body>
   <div class="container">
