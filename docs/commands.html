@@ -90,10 +90,21 @@
     }
 
     document.addEventListener('DOMContentLoaded', fetchCommands);
+	
+	
+    function loadPage(page) {
+      window.location.href = page;
+    }
   </script>
 </head>
 <body>
+
   <div class="container">
+  	<div class="navigation">
+	  <a href="#" onclick="loadPage('main.html')">Home</a>
+      <a href="#" onclick="loadPage('commands.html')">Commands</a>
+      <a href="#" onclick="loadPage('issues.html')">Common Issues</a>
+    </div>
     <h1>Command Reference - Commands</h1>
     <div class="search-box">
       <input type="text" id="search-input" placeholder="Search commands..." onkeydown="if(event.keyCode === 13) searchContent()">
