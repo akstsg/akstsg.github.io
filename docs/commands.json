@@ -28,5 +28,15 @@
     "title": "Example Command 6",
     "description": "Description of example command 6",
     "command": "command6"
+  },
+    {
+    "title": "Example Command 7",
+    "description": "Description of example command 7",
+    "command": "command7"
+  },
+    {
+    "title": "Example Command 7",
+    "description": "Description of example command 7",
+    "command": "command7"
   }
 ]
