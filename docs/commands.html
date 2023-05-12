@@ -67,7 +67,7 @@
     }
 
     function fetchCommands() {
-      fetch('../commands.josn')
+      fetch('https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/commands.json')
         .then(response => response.json())
         .then(commands => {
           var commandList = document.querySelector('.command-list');
