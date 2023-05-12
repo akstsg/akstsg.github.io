@@ -30,13 +30,18 @@
     "command": "command6"
   },
     {
-    "title": "Example Command 7",
-    "description": "Description of example command 7",
-    "command": "command7"
+    "title": "Example Command 8",
+    "description": "Description of example command 8",
+    "command": "command8"
   },
     {
-    "title": "Example Command 7",
-    "description": "Description of example command 7",
-    "command": "command7"
+    "title": "Example Command 9",
+    "description": "Description of example command 9",
+    "command": "command9"
+  },
+    {
+    "title": "Example Command 10",
+    "description": "Description of example command 10",
+    "command": "command10"
   }
 ]
