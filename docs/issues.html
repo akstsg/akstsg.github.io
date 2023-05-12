@@ -103,10 +103,10 @@
             issueTitle.textContent = issue.title;
 
             var issueDescription = document.createElement('p');
-            issueDescription.textContent = issue.description;
+            issueDescription.textContent = 'Description: ' + issue.description;
 
             var issueSolution = document.createElement('p');
-            issueSolution.textContent = issue.solution;
+            issueSolution.textContent = 'Solution: ' + issue.solution;
 
             listItem.appendChild(issueTitle);
             listItem.appendChild(issueDescription);
