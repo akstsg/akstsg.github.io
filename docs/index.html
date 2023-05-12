@@ -69,80 +69,78 @@
       window.location.href = url;
     }
 
-    function searchContent(event) {
-      if (event.keyCode === 13) { // Check if Enter key is pressed
-        var input = document.getElementById("search-input").value.toLowerCase();
-        var searchResults = document.getElementById("search-results");
-        searchResults.innerHTML = "";
+    function searchContent() {
+      var input = document.getElementById("search-input").value.toLowerCase();
+      var searchResults = document.getElementById("search-results");
+      searchResults.innerHTML = "";
 
-        // Search commands.json
-        fetch('https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/commands.json')
-          .then(response => response.json())
-          .then(commands => {
-            var filteredCommands = commands.filter(command =>
-              command.title.toLowerCase().includes(input) ||
-              command.description.toLowerCase().includes(input) ||
-              command.command.toLowerCase().includes(input)
-            );
+      // Search commands.json
+      fetch('https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/commands.json')
+        .then(response => response.json())
+        .then(commands => {
+          var filteredCommands = commands.filter(command =>
+            command.title.toLowerCase().includes(input) ||
+            command.description.toLowerCase().includes(input) ||
+            command.command.toLowerCase().includes(input)
+          );
 
-            if (filteredCommands.length > 0) {
-              var commandsList = document.createElement("ul");
-              filteredCommands.forEach(command => {
-                var commandItem = document.createElement("li");
-                var commandTitle = document.createElement("h3");
-                commandTitle.textContent = command.title;
-                var commandDescription = document.createElement("p");
-                commandDescription.textContent = command.description;
+          if (filteredCommands.length > 0) {
+            var commandsList = document.createElement("ul");
+            filteredCommands.forEach(command => {
+              var commandItem = document.createElement("li");
+              var commandTitle = document.createElement("h3");
+              commandTitle.textContent = command.title;
+              var commandDescription = document.createElement("p");
+              commandDescription.textContent = command.description;
 
-                commandItem.appendChild(commandTitle);
-                commandItem.appendChild(commandDescription);
-                commandsList.appendChild(commandItem);
-              });
-              searchResults.appendChild(commandsList);
-            }
-          });
+              commandItem.appendChild(commandTitle);
+              commandItem.appendChild(commandDescription);
+              commandsList.appendChild(commandItem);
+            });
+            searchResults.appendChild(commandsList);
+          }
+        });
 
-        // Search issues.json
-        fetch('https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/issues.json')
-          .then(response => response.json())
-          .then(issues => {
-            var filteredIssues = issues.filter(issue =>
-              issue.title.toLowerCase().includes(input) ||
-              issue.description.toLowerCase().includes(input) ||
-              issue.solution.toLowerCase().includes(input)
-            );
-            if (filteredIssues.length > 0) {
-              var issuesList = document.createElement("ul");
-              filteredIssues.forEach(issue => {
-                var issueItem = document.createElement("li");
-                var issueTitle = document.createElement("h3");
-                issueTitle.textContent = issue.title;
-                var issueDescription = document.createElement("p");
-                issueDescription.textContent = issue.description;
+      // Search issues.json
+      fetch('https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/issues.json')
+        .then(response => response.json())
+        .then(issues => {
+          var filteredIssues = issues.filter(issue =>
+            issue.title.toLowerCase().includes(input) ||
+            issue.description.toLowerCase().includes(input) ||
+            issue.solution.toLowerCase().includes(input)
+          );
+          if (filteredIssues.length > 0) {
+            var issuesList = document.createElement("ul");
+            filteredIssues.forEach(issue => {
+              var issueItem = document.createElement("li");
+              var issueTitle = document.createElement("h3");
+                           issueTitle.textContent = issue.title;
+              var issueDescription = document.createElement("p");
+              issueDescription.textContent = issue.description;
 
-                issueItem.appendChild(issueTitle);
-                issueItem.appendChild(issueDescription);
-                issuesList.appendChild(issueItem);
-              });
-              searchResults.appendChild(issuesList);
-            }
-          })
-          .catch(error => console.error(error));
-      }
+              issueItem.appendChild(issueTitle);
+              issueItem.appendChild(issueDescription);
+              issuesList.appendChild(issueItem);
+            });
+            searchResults.appendChild(issuesList);
+          }
+        })
+        .catch(error => console.error(error));
     }
   </script>
 </head>
 <body>
   <div class="container">
-      <div class="navigation">
-	  <a href="#" onclick="loadPage('index.html')">Home</a>
+    <div class="navigation">
+      <a href="#" onclick="loadPage('main.html')">Home</a>
       <a href="#" onclick="loadPage('commands.html')">Commands</a>
       <a href="#" onclick="loadPage('issues.html')">Common Issues</a>
     </div>
     <h1>Command Reference</h1>
     <div class="search-box">
-      <input type="text" id="search-input" placeholder="Search commands and issues..." onkeydown="searchContent(event)">
-      <input type="submit" value="Search">
+      <input type="text" id="search-input" placeholder="Search commands and issues..." onkeydown="if(event.keyCode === 13) searchContent()">
+      <input type="submit" value="Search" onclick="searchContent()">
     </div>
 
     <h2>Main Page Content</h2>
@@ -151,4 +149,3 @@
   </div>
 </body>
 </html>
-
