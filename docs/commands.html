@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
   <title>Command Reference - Commands</title>
@@ -50,12 +50,19 @@
     .command-list li p {
       color: #666;
     }
+    .navigation {
+      margin-bottom: 20px;
+    }
+    .navigation a {
+      margin-right: 10px;
+      color: #333;
+      text-decoration: none;
+    }
   </style>
   <script>
     function searchContent() {
       var input = document.getElementById("search-input").value.toLowerCase();
       var commands = document.querySelectorAll(".searchable");
-
       for (var i = 0; i < commands.length; i++) {
         var command = commands[i].textContent.toLowerCase();
         if (command.indexOf(input) > -1) {
@@ -65,7 +72,6 @@
         }
       }
     }
-
     function fetchCommands() {
       fetch('https://raw.githubusercontent.com/akstsg/akstsg.github.io/main/docs/commands.json')
         .then(response => response.json())
@@ -80,7 +86,6 @@
             commandDescription.textContent = command.description;
             var commandCode = document.createElement('pre');
             commandCode.innerHTML = '<code>$ ' + command.command + '</code>';
-
             listItem.appendChild(commandTitle);
             listItem.appendChild(commandDescription);
             listItem.appendChild(commandCode);
@@ -88,17 +93,12 @@
           });
         });
     }
-
-    document.addEventListener('DOMContentLoaded', fetchCommands);
-	
-	
-    function loadPage(page) {
-      window.location.href = page;
-    }
-  </script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetchIssues();
+    });
+   </script>
 </head>
 <body>
-
   <div class="container">
   	<div class="navigation">
 	  <a href="#" onclick="loadPage('index.html')">Home</a>
