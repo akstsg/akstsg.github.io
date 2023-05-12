@@ -93,6 +93,7 @@
         .then(response => response.json())
         .then(commands => {
           var commandList = document.querySelector('.command-list');
+	  commandList.innerHTML = ''; // Clear existing list items
           commands.forEach(command => {
             var listItem = document.createElement('li');
             listItem.className = 'searchable';
