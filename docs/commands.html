@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
   <title>Command Reference - Commands</title>
@@ -93,7 +93,7 @@
         .then(response => response.json())
         .then(commands => {
           var commandList = document.querySelector('.command-list');
-	  commandList.innerHTML = ''; // Clear existing list items
+          commandList.innerHTML = ''; // Clear existing items before populating
           commands.forEach(command => {
             var listItem = document.createElement('li');
             listItem.className = 'searchable';
@@ -105,17 +105,16 @@
             commandCode.innerHTML = '<code>$ ' + command.command + '</code>';
             listItem.appendChild(commandTitle);
             listItem.appendChild(commandDescription);
-            listItem.appendChild(commandCode);
-            commandList.appendChild(listItem);
-          });
-        });
-    }
-    document.addEventListener('DOMContentLoaded', fetchCommands);
-	
-    function loadPage(page) {
-      window.location.href = page;
-    }
-  </script>
+          listItem.appendChild(commandCode);
+commandList.appendChild(listItem);
+});
+});
+}
+ document.addEventListener('DOMContentLoaded', fetchCommands);
+function loadPage(page) {
+  window.location.href = page;
+}
+</script>
 </head>
 <body>
   <div class="container">
