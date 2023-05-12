@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Example Command 1",
+    "description": "Description of example command 1",
+    "command": "command1"
+  },
+  {
+    "title": "Example Command 2",
+    "description": "Description of example command 2",
+    "command": "command2"
+  },
+  {
+    "title": "Example Command 3",
+    "description": "Description of example command 3",
+    "command": "command3"
+  }
+]
