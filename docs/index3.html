@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Markdown Page with Search</title>
+  <style>
+    /* Optional CSS styles for search box and highlighting */
+    .highlighted {
+      background-color: yellow;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    // Function to perform search
+    function performSearch() {
+      var searchTerm = document.getElementById('search-input').value.toLowerCase();
+      var markdownContent = document.getElementById('markdown-content').innerHTML.toLowerCase();
+
+      if (markdownContent.indexOf(searchTerm) !== -1) {
+        document.getElementById('markdown-content').innerHTML = markdownContent.replace(new RegExp(searchTerm, 'gi'), '<span class="highlighted">' + searchTerm + '</span>');
+      }
+    }
+
+    // Bind search function to input field
+    document.getElementById('search-input').addEventListener('input', performSearch);
+  </script>
+</head>
+<body>
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search">
+  </div>
+  <div id="markdown-content">
+    <!-- Replace this with your Markdown content -->
+    <h1>Markdown Page with Search</h1>
+    <p>This is an example Markdown page with a search box.</p>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+</body>
+</html>
